@@ -1,0 +1,9 @@
+# ignore cmake
+cmake-build-debug
+*.cmake
+
+# ignore sim, can be found at https://github.com/udacity/self-driving-car-sim/releases/download/v1.45/term2_sim_linux.zip
+Simulator
+
+# ignore jetbrains
+.idea

@@ -38,6 +38,7 @@ FusionEKF::FusionEKF() {
    */
 
 
+
 }
 
 /**
@@ -49,7 +50,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   /**
    * Initialization
    */
-  if (!is_initialized_) {
+  if (not is_initialized_) {
     /**
      * TODO: Initialize the state ekf_.x_ with the first measurement.
      * TODO: Create the covariance matrix.
@@ -64,6 +65,10 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     if (measurement_pack.sensor_type_ == MeasurementPackage::RADAR) {
       // TODO: Convert radar from polar to cartesian coordinates 
       //         and initialize state.
+      auto Hj = tools.CalculateJacobian(measurement_pack.raw_measurements_);
+
+      // perform first-order taylor expansion
+//      auto h = atan(measurement_pack.raw_measurements_);
 
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
